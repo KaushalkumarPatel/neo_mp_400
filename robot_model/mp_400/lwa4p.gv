@@ -1,0 +1,65 @@
+digraph G {
+node [shape=box];
+"world" [label="world"];
+"arm_podest_link" [label="arm_podest_link"];
+"arm_base_link" [label="arm_base_link"];
+"arm_1_link" [label="arm_1_link"];
+"arm_2_link" [label="arm_2_link"];
+"arm_3_link" [label="arm_3_link"];
+"arm_4_link" [label="arm_4_link"];
+"arm_5_link" [label="arm_5_link"];
+"arm_6_link" [label="arm_6_link"];
+"pg70_palm_link" [label="pg70_palm_link"];
+"pg70_finger_left_link" [label="pg70_finger_left_link"];
+"pg70_fingertip_left_link" [label="pg70_fingertip_left_link"];
+"camera_link" [label="camera_link"];
+"camera_depth_frame" [label="camera_depth_frame"];
+"camera_color_frame" [label="camera_color_frame"];
+"camera_color_optical_frame" [label="camera_color_optical_frame"];
+"camera_depth_optical_frame" [label="camera_depth_optical_frame"];
+"camera_left_ir_frame" [label="camera_left_ir_frame"];
+"camera_left_ir_optical_frame" [label="camera_left_ir_optical_frame"];
+"camera_right_ir_frame" [label="camera_right_ir_frame"];
+"camera_right_ir_optical_frame" [label="camera_right_ir_optical_frame"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"world" -> "arm_podest_joint" [label="xyz: 0 0 0.8 \nrpy: 0 -0 0"]
+"arm_podest_joint" -> "arm_podest_link"
+"arm_podest_link" -> "arm_base_joint" [label="xyz: 0 0 0.1 \nrpy: 0 -0 0"]
+"arm_base_joint" -> "arm_base_link"
+"arm_base_link" -> "arm_1_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"arm_1_joint" -> "arm_1_link"
+"arm_1_link" -> "arm_2_joint" [label="xyz: 0 0 0 \nrpy: 1.5708 -0 0"]
+"arm_2_joint" -> "arm_2_link"
+"arm_2_link" -> "arm_3_joint" [label="xyz: 0 0.35 0 \nrpy: 3.14159 2.65359e-06 3.14159"]
+"arm_3_joint" -> "arm_3_link"
+"arm_3_link" -> "arm_4_joint" [label="xyz: 0 0 0 \nrpy: 1.57079 2.65359e-06 3.14159"]
+"arm_4_joint" -> "arm_4_link"
+"arm_4_link" -> "arm_5_joint" [label="xyz: 0 0.005263 0.305 \nrpy: 1.5708 -0 3.14159"]
+"arm_5_joint" -> "arm_5_link"
+"arm_5_link" -> "arm_6_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 0 0"]
+"arm_6_joint" -> "arm_6_link"
+"arm_6_link" -> "pg70_palm_joint" [label="xyz: 0 0 0.075 \nrpy: 0 -0 0"]
+"pg70_palm_joint" -> "pg70_palm_link"
+"pg70_palm_link" -> "pg70_finger_left_joint" [label="xyz: 0 0 0.0789 \nrpy: 0 -0 0"]
+"pg70_finger_left_joint" -> "pg70_finger_left_link"
+"pg70_finger_left_link" -> "pg70_fingertip_left_joint" [label="xyz: 0 0.01 0.045 \nrpy: 0 -0 0"]
+"pg70_fingertip_left_joint" -> "pg70_fingertip_left_link"
+"world" -> "camera_joint" [label="xyz: 0.1 0 0.8 \nrpy: 0 -0 0"]
+"camera_joint" -> "camera_link"
+"camera_link" -> "camera_depth_joint" [label="xyz: 0.0149 0.0175 0.0125 \nrpy: 0 -0 0"]
+"camera_depth_joint" -> "camera_depth_frame"
+"camera_depth_frame" -> "camera_color_joint" [label="xyz: 0 0.015 0 \nrpy: 0 -0 0"]
+"camera_color_joint" -> "camera_color_frame"
+"camera_color_frame" -> "camera_color_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"camera_color_optical_joint" -> "camera_color_optical_frame"
+"camera_depth_frame" -> "camera_depth_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"camera_depth_optical_joint" -> "camera_depth_optical_frame"
+"camera_depth_frame" -> "camera_left_ir_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"camera_left_ir_joint" -> "camera_left_ir_frame"
+"camera_left_ir_frame" -> "camera_left_ir_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"camera_left_ir_optical_joint" -> "camera_left_ir_optical_frame"
+"camera_depth_frame" -> "camera_right_ir_joint" [label="xyz: 0 -0.05 0 \nrpy: 0 -0 0"]
+"camera_right_ir_joint" -> "camera_right_ir_frame"
+"camera_right_ir_frame" -> "camera_right_ir_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"camera_right_ir_optical_joint" -> "camera_right_ir_optical_frame"
+}
